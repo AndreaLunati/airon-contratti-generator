@@ -108,10 +108,26 @@ def estrai_dati_con_ai(testo_contratto):
     e restituisci un JSON puro con questi campi chiave:
 
     - cliente (Nome e Cognome)
-    - email (se non presente, stringa vuota "")
-    - telefono (se non presente, stringa vuota "")
-    - patente_nautica (per adesso restituisci stringa vuota "" se non presente)
-    - hotel (RESTITUISCI STRINGA VUOTA "" se non viene menzionato un hotel o struttura specifica)
+- email (se non presente, stringa vuota "")
+- telefono (se non presente, stringa vuota "")
+
+- documento:
+  estrai il numero del documento di identità del cliente.
+  Può essere indicato come "documento", "documento d'identità",
+  "carta d'identità", "ID", "ID number", "numero documento",
+  "document number" o diciture simili.
+  Restituisci SOLO il numero/codice del documento.
+  Se non presente, restituisci stringa vuota "".
+
+- patente_nautica:
+  estrai il numero della patente nautica del cliente.
+  Può essere indicato come "patente nautica", "patente",
+  "numero patente", "license", "boat license",
+  "nautical license", "licence number" o diciture simili.
+  Restituisci SOLO il numero/codice della patente.
+  Se non presente, restituisci stringa vuota "".
+
+- hotel (RESTITUISCI STRINGA VUOTA "" se non viene menzionato un hotel o struttura specifica)
     - numero_prenotazione
     - barca (DEVE ESSERE ESATTAMENTE UNA di queste stringhe:
       "MARINELLO 18.1", "MARINELLO 18.2", "MARINELLO 18.3", "MARINELLO 18.4",
@@ -270,12 +286,12 @@ def compila_contratto_coordinate(file_fattura_vuota, dati):
         "MARINELLO 18.2": (23, 230),
         "MARINELLO 18.3": (23, 245),
         "MARINELLO 18.4": (23, 260),
-        "SONCOR 21": (228, 215),
-        "AIRON 223": (228, 230),
-        "AIRON 277 FISH": (228, 245),
-        "MASTER F. 279": (228, 260),
-        "KONDOR 810": (228, 275),
-        "AIRON 325": (23, 275),
+        "SONCOR 21": (209, 215),
+        "AIRON 223": (209, 237),
+        "AIRON 277 FISH": (407, 237),
+        "MASTER F. 279": (407, 260),
+        "KONDOR 810": (407, 284),
+        "AIRON 325": (407, 307),
     }
 
     if barca_trovata in coordinate_x_barche:
